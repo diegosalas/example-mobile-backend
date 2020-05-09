@@ -211,8 +211,8 @@ post '/create_payment_intent' do
   end
 
   # Calculate how much to charge the customer
-  amount = calculate_price(payload[:products], payload[:shipping])
-
+  #amount = calculate_price(payload[:products], payload[:shipping])
+  amount = payload[:amount]
   begin
     payment_intent = Stripe::PaymentIntent.create(
       :amount => amount,
