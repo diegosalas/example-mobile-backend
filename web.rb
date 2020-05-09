@@ -27,7 +27,7 @@ get '/test' do
  end
  content_type :json
  status 200
- return log_info("Great, test")
+ return log_info("Great Ruby Post, test")
 end
 
 post '/ephemeral_keys' do
