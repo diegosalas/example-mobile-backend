@@ -39,7 +39,7 @@ post '/ephemeral_keys' do
   key.to_json
 end
 
-post '/test' do
+get '/test' do
  status 200
  return log_info("Great, test")
 end
