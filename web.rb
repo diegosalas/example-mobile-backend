@@ -40,19 +40,8 @@ post '/ephemeral_keys' do
 end
 
 post '/test' do
-  begin
-    key = Stripe::EphemeralKey.create(
-      {customer: @customer.id},
-      {stripe_version: params["api_version"]}
-    )
-  rescue Stripe::StripeError => e
-    status 402
-    return log_info("Error creating ephemeral key: #{e.message}")
-  end
-
-  content_type :json
-  status 200
-  key.to_json
+ status 200
+ return log_info("Great, test")
 end
 
 def authenticate!
