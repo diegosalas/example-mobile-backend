@@ -19,7 +19,7 @@ end
 
 get '/' do
   status 200
-  return log_info("Great, your backend is set up. Now you can configure the Stripe example apps to point here. Deployed with Github amount test 2")
+  return log_info("Great, your backend is set up. Now you can configure the Stripe example apps to point here. Testing destination 1")
 end
 
 post '/ephemeral_keys' do
@@ -213,14 +213,21 @@ post '/create_payment_intent' do
   # Calculate how much to charge the customer
   #amount = calculate_price(payload[:products], payload[:shipping])
   amount = payload[:amount]
+  destination = payload[:destination]
+  application_fee_amount = payload[:application_fee_amount]
   begin
     payment_intent = Stripe::PaymentIntent.create(
       :amount => amount,
+      :application_fee_amount => application_fee_amount,
       :currency => currency_for_country(payload[:country]),
       :customer => payload[:customer_id] || @customer.id,
       :description => "Example PaymentIntent",
       :capture_method => ENV['CAPTURE_METHOD'] == "manual" ? "manual" : "automatic",
       payment_method_types: payment_methods_for_country(payload[:country]),
+      :transfer_data => {
+        :destination=> 'acct_1GgzMfEdSR09HgU2',
+        #:destination=> 'acct_1Gf3OOGmatvuyXxj',
+      }.merge(payload[:transfer_data] || {}),
       :metadata => {
         :order_id => '5278735C-1F40-407D-933A-286E463E72D8',
       }.merge(payload[:metadata] || {}),
