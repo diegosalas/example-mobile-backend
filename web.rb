@@ -22,18 +22,13 @@ get '/' do
   return log_info("Great, your backend is set up. Now you can configure the Stripe example apps to point here.")
 end
 
-post '/test' do
- begin
- end
- content_type :json
- status 200
- return log_info("Great Ruby Post, test 2")
-end
+
 
 post '/ephemeral_keys' do
   authenticate!
   begin
     key = Stripe::EphemeralKey.create(
+
       {customer: @customer.id},
       {stripe_version: params["api_version"]}
     )
@@ -98,6 +93,7 @@ end
 
 def create_customer
   Stripe::Customer.create(
+    :email => 'prueba@gmail.com'
     :description => 'mobile SDK example customer',
     :metadata => {
       # Add our application's customer id for this Customer, so it'll be easier to look up
