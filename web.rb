@@ -88,7 +88,7 @@ end
 
 def create_customer
   Stripe::Customer.create(
-    :email => 'test@gmail.com',
+    :email => 'info@munchybox.io',
     :description => 'Munchy Box Testing',
     :metadata => {
       # Add our application's customer id for this Customer, so it'll be easier to look up
