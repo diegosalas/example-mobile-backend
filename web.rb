@@ -19,7 +19,7 @@ end
 
 get '/' do
   status 200
-  return log_info("Great, your backend is set up. Now you can configure the Stripe example apps to point here. Testing destination 1")
+  return log_info("Great, your backend is set up. Now you can configure the Stripe example apps to point here. Testing destination 2")
 end
 
 post '/ephemeral_keys' do
