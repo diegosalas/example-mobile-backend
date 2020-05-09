@@ -19,7 +19,7 @@ end
 
 get '/' do
   status 200
-  return log_info("Great, your backend is set up. Now you can configure the Stripe example apps to point here. Testing destination 3")
+  return log_info("Great, your backend is set up. Now you can configure the Stripe example apps to point here. Testing destination 4")
 end
 
 post '/ephemeral_keys' do
@@ -221,7 +221,7 @@ post '/create_payment_intent' do
       :application_fee_amount => application_fee_amount,
       :currency => currency_for_country(payload[:country]),
       :customer => payload[:customer_id] || @customer.id,
-      :description => "Example PaymentIntent",
+      :description => "Munchy Box id:" + @customer.id ,
       :capture_method => ENV['CAPTURE_METHOD'] == "manual" ? "manual" : "automatic",
       payment_method_types: payment_methods_for_country(payload[:country]),
       transfer_data: {
@@ -277,7 +277,7 @@ post '/confirm_payment_intent' do
         :source => payload[:source],
         :payment_method => payload[:payment_method_id],
         :payment_method_types => payment_methods_for_country(payload[:country]),
-        :description => "Example PaymentIntent",
+        :description => "AUD Payment",
         :shipping => payload[:shipping],
         :return_url => payload[:return_url],
         :confirm => true,
