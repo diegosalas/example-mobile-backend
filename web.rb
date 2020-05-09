@@ -88,8 +88,8 @@ end
 
 def create_customer
   Stripe::Customer.create(
-    :email => 'diegosalas@gmail.com',
-    :description => 'mobile SDK example customer',
+    :email => 'test@gmail.com',
+    :description => 'Munchy Box Testing',
     :metadata => {
       # Add our application's customer id for this Customer, so it'll be easier to look up
       :my_customer_id => '72F8C533-FCD5-47A6-A45B-3956CA8C792D',
