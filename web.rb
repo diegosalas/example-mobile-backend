@@ -22,6 +22,14 @@ get '/' do
   return log_info("Great, your backend is set up. Now you can configure the Stripe example apps to point here.")
 end
 
+get '/test' do
+ begin
+ end
+ content_type :json
+ status 200
+ return log_info("Great, test")
+end
+
 post '/ephemeral_keys' do
   authenticate!
   begin
@@ -39,10 +47,7 @@ post '/ephemeral_keys' do
   key.to_json
 end
 
-get '/test' do
- status 200
- return log_info("Great, test")
-end
+
 
 def authenticate!
   # This code simulates "loading the Stripe customer for your current session".
