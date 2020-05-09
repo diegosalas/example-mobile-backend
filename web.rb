@@ -19,7 +19,7 @@ end
 
 get '/' do
   status 200
-  return log_info("Great, your backend is set up. Now you can configure the Stripe example apps to point here. Testing destination 2")
+  return log_info("Great, your backend is set up. Now you can configure the Stripe example apps to point here. Testing destination 3")
 end
 
 post '/ephemeral_keys' do
@@ -389,7 +389,7 @@ def currency_for_country(country)
     'myr'
   when 'at', 'be', 'de', 'es', 'it', 'nl', 'pl'
     'eur'
-  when 'au'
+  when 'aud'
     'aud'
   when 'gb'
     'gbp'
@@ -408,7 +408,7 @@ def payment_methods_for_country(country)
     %w[card fpx]
   when 'nl'
     %w[card ideal sepa_debit sofort]
-  when 'au'
+  when 'aud'
     %w[card au_becs_debit]
   when 'gb'
     %w[card bacs_debit]
