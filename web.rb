@@ -22,12 +22,12 @@ get '/' do
   return log_info("Great, your backend is set up. Now you can configure the Stripe example apps to point here.")
 end
 
-get '/test' do
+post '/test' do
  begin
  end
  content_type :json
  status 200
- return log_info("Great Ruby Post, test")
+ return log_info("Great Ruby Post, test 2")
 end
 
 post '/ephemeral_keys' do
