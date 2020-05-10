@@ -225,7 +225,6 @@ post '/create_payment_intent' do
       :capture_method => ENV['CAPTURE_METHOD'] == "manual" ? "manual" : "automatic",
       payment_method_types: payment_methods_for_country(payload[:country]),
       transfer_data: {
-        #:destination=> 'acct_1GgzMfEdSR09HgU2',
         :destination=> destination,
       },
       :metadata => {
