@@ -225,8 +225,8 @@ post '/create_payment_intent' do
       :capture_method => ENV['CAPTURE_METHOD'] == "manual" ? "manual" : "automatic",
       payment_method_types: payment_methods_for_country(payload[:country]),
       transfer_data: {
-        :destination=> 'acct_1GgzMfEdSR09HgU2',
-        #:destination=> 'acct_1Gf3OOGmatvuyXxj',
+        #:destination=> 'acct_1GgzMfEdSR09HgU2',
+        :destination=> destination,
       },
       :metadata => {
         :order_id => '5278735C-1F40-407D-933A-286E463E72D8',
